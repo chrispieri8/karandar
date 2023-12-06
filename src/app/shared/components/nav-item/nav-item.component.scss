@@ -1,0 +1,42 @@
+@use 'themes';
+
+.nav-item {
+  display: grid;
+  grid-template-columns: 80px 0;
+  grid-template-rows: auto;
+  grid-template-areas: 'icon text';
+  text-wrap: nowrap;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  &.sidebar-hover {
+    .nav-item {
+      grid-template-columns: 80px 1fr;
+    }
+
+    .toggle-text {
+      opacity: 1;
+    }
+  }
+
+  i {
+    grid-area: 'icon';
+    justify-self: center;
+    font-size: 1.5rem;
+    color: themes.$primary;
+  }
+
+  span {
+    grid-area: 'text';
+  }
+}
+
+.toggle-text {
+  opacity: 0;
+}

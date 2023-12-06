@@ -1,3 +1,17 @@
-<div>
-  <full-calendar class="box" [options]="calendarOptions"></full-calendar>
+<div class="layout">
+  <app-sidebar>
+    <app-nav-item icon="iconoir-calendar" title="Karandar"></app-nav-item>
+
+    <br />
+
+    <app-nav-item icon="iconoir-user-love" title="Dates" routerLink="/dates"></app-nav-item>
+    <app-nav-item icon="iconoir-clutery" title="Restaurants" routerLink="/restaurants"></app-nav-item>
+    <app-nav-item icon="iconoir-movie" title="Movies" routerLink="/movies"></app-nav-item>
+    <app-nav-item icon="iconoir-compass" title="Trips"></app-nav-item>
+  </app-sidebar>
+  <main>
+    <router-outlet>
+      <div id="map"></div>
+    </router-outlet>
+  </main>
 </div>

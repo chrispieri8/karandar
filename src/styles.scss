@@ -1,3 +1,5 @@
+@use 'themes';
+
 *,
 *::before,
 *::after {
@@ -13,6 +15,9 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: themes.$background;
+  font-family: 'Poppins', sans-serif;
+  color: themes.$text;
 }
 img,
 picture,
@@ -40,4 +45,19 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: themes.$shadow;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }

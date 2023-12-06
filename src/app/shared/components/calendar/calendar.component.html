@@ -1,0 +1,30 @@
+<div class="calendar">
+  <div class="header">
+    <button class="prev" (click)="prevMonth()">Prev</button>
+    <div class="title">{{ month }} {{ year }}</div>
+    <button class="next" (click)="nextMonth()">Next</button>
+  </div>
+  <div class="days">
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+    <div class="day" *ngFor="let day of days">
+      {{ day }}
+    </div>
+  </div>
+</div>

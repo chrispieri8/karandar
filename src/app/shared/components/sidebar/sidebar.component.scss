@@ -1,0 +1,30 @@
+@use 'themes';
+
+.sidebar {
+  position: relative;
+  height: 100%;
+  width: 80px;
+  transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);
+  background: white;
+  z-index: 999;
+  box-shadow: 0px 4px 50px themes.$shadow;
+  display: flex;
+  flex-direction: column;
+  //   align-items: center;
+  padding-top: 1rem;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+
+  > * {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  &:hover {
+    width: 200px;
+
+    .toggle-text {
+      opacity: 1;
+    }
+  }
+}

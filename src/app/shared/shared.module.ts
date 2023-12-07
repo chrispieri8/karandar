@@ -6,6 +6,12 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
 import { RippleDirective } from './directives/ripple.directive';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,20 @@ import { RippleDirective } from './directives/ripple.directive';
     NavItemComponent,
     RippleDirective,
   ],
-  imports: [CommonModule],
-  exports: [ButtonComponent, InputComponent, CalendarComponent, SidebarComponent, NavItemComponent, RippleDirective],
+  imports: [CommonModule, ButtonModule, DialogModule, InputTextModule, CalendarModule, InputTextareaModule, CardModule],
+  exports: [
+    ButtonComponent,
+    InputComponent,
+    CalendarComponent,
+    SidebarComponent,
+    NavItemComponent,
+    RippleDirective,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    CalendarModule,
+    InputTextareaModule,
+    CardModule,
+  ],
 })
 export class SharedModule {}

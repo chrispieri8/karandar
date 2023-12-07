@@ -7,11 +7,21 @@ import { SharedModule } from './shared/shared.module';
 import { DatesComponent } from './components/dates/dates.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, DatesComponent, MoviesComponent, RestaurantsComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, SharedModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SharedModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

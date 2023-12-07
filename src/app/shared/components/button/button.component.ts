@@ -12,6 +12,7 @@ interface Button {
 })
 export class ButtonComponent implements Button {
   @Input() label: string;
+  @Input() disabled = false;
   @Output() onClick = new EventEmitter();
 
   handleClick() {

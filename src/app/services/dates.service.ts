@@ -12,10 +12,10 @@ export class DatesService {
   readonly dates = this.getDates().pipe(shareReplay(1));
 
   createDate(date: IDate): Observable<void> {
-    return this.http.post<void>('http://localhost:3000/date', date);
+    return this.http.post<void>('https://karandar.deno.dev/date', date);
   }
 
   getDates(): Observable<IDate[]> {
-    return this.http.get<IDate[]>('http://localhost:3000/dates');
+    return this.http.get<IDate[]>('https://karandar.deno.dev/dates');
   }
 }

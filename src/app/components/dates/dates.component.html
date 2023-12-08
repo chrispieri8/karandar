@@ -28,8 +28,20 @@
   <br />
 
   @for (date of dates | async; track date._id) {
-  <p-card [header]="date.title || ''" [subheader]="(date.date | date) || ''">
-    <p class="m-0">
+  <p-card>
+    <div class="card-header">
+      <div>
+        <h2>{{ date.title }}</h2>
+        <span>{{ date.date | date }}</span>
+      </div>
+      <div class="action-btns">
+        <p-button icon="iconoir-edit-pencil" size="small" [outlined]="true" (onClick)="edit(date)"></p-button>
+        <p-confirmPopup></p-confirmPopup>
+        <p-button icon="iconoir-trash" size="small" [outlined]="true" (onClick)="deleteDate($event, date)"></p-button>
+      </div>
+    </div>
+
+    <p>
       {{ date.description }}
     </p>
   </p-card>

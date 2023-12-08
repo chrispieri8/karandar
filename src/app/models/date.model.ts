@@ -1,6 +1,9 @@
-export interface IDate {
-  _id?: string;
+export interface IDateFormData {
   title: string | null;
-  date: string;
+  date: Date;
   description: string;
+}
+
+export interface IDate extends IDateFormData {
+  _id: string;
 }

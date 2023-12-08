@@ -12,6 +12,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CardModule } from 'primeng/card';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,17 @@ import { CardModule } from 'primeng/card';
     NavItemComponent,
     RippleDirective,
   ],
-  imports: [CommonModule, ButtonModule, DialogModule, InputTextModule, CalendarModule, InputTextareaModule, CardModule],
+  imports: [
+    CommonModule,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    CalendarModule,
+    InputTextareaModule,
+    CardModule,
+    ConfirmPopupModule,
+    MenuModule,
+  ],
   exports: [
     ButtonComponent,
     InputComponent,
@@ -36,6 +48,8 @@ import { CardModule } from 'primeng/card';
     CalendarModule,
     InputTextareaModule,
     CardModule,
+    ConfirmPopupModule,
+    MenuModule,
   ],
 })
 export class SharedModule {}

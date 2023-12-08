@@ -14,6 +14,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CardModule } from 'primeng/card';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { MenuModule } from 'primeng/menu';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MenuModule } from 'primeng/menu';
     CardModule,
     ConfirmPopupModule,
     MenuModule,
+    SkeletonModule,
   ],
   exports: [
     ButtonComponent,
@@ -50,6 +52,7 @@ import { MenuModule } from 'primeng/menu';
     CardModule,
     ConfirmPopupModule,
     MenuModule,
+    SkeletonModule,
   ],
 })
 export class SharedModule {}

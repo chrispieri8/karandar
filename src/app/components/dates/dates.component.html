@@ -27,7 +27,7 @@
 
   <br />
 
-  @for (date of dates | async; track date._id) {
+  @defer (when dates | async) { @for (date of dates | async; track date._id) {
   <p-card>
     <div class="card-header">
       <div>
@@ -46,5 +46,9 @@
     </p>
   </p-card>
   <br />
-  }
+  } } @placeholder (minimum 500ms) { @for (x of [1,2,3,4,5]; track $index) {
+
+  <p-skeleton width="100%" height="10rem" styleClass="mb-2"></p-skeleton>
+  <br />
+  } }
 </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ConfirmationService, MenuItem } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { IDate } from 'src/app/models/date.model';
 import { DatesService } from 'src/app/services/dates.service';
@@ -28,7 +28,11 @@ export class DatesComponent {
     date: new FormControl(new Date(), { validators: [Validators.required], nonNullable: true }),
   });
 
-  constructor(private dateService: DatesService, private confirmationService: ConfirmationService) {}
+  constructor(
+    private dateService: DatesService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+  ) {}
 
   openModal() {
     this.showModal = true;
@@ -58,13 +62,13 @@ export class DatesComponent {
 
   createDate() {
     this.dateService.createDate(this.form.getRawValue()).subscribe((res) => {
-      console.log(res);
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Created a new date' });
     });
   }
 
   updateDate() {
     this.dateService.updateDate(this.form.getRawValue(), this.editId).subscribe((res) => {
-      console.log(res);
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Updated a new date' });
     });
   }
 
@@ -75,7 +79,7 @@ export class DatesComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.dateService.deleteDate(date._id).subscribe((res) => {
-          console.log(res);
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Deleted a date' });
         });
       },
       reject: () => {

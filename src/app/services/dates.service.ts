@@ -14,7 +14,6 @@ export class DatesService {
     switchMap(() => this.getDates()),
     shareReplay(1),
   );
-  //   this.getDates().pipe(shareReplay(1));
 
   getDates(): Observable<IDate[]> {
     return this.http.get<IDate[]>(`${environment.apiUrl}/dates`);

@@ -15,6 +15,8 @@ import { CardModule } from 'primeng/card';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { MenuModule } from 'primeng/menu';
 import { SkeletonModule } from 'primeng/skeleton';
+import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SkeletonModule } from 'primeng/skeleton';
     ConfirmPopupModule,
     MenuModule,
     SkeletonModule,
+    MessagesModule,
+    ToastModule,
   ],
   exports: [
     ButtonComponent,
@@ -53,6 +57,8 @@ import { SkeletonModule } from 'primeng/skeleton';
     ConfirmPopupModule,
     MenuModule,
     SkeletonModule,
+    MessagesModule,
+    ToastModule,
   ],
 })
 export class SharedModule {}

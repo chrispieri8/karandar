@@ -10,7 +10,7 @@ import { RestaurantsComponent } from './components/restaurants/restaurants.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [AppComponent, DatesComponent, MoviesComponent, RestaurantsComponent],
@@ -23,7 +23,7 @@ import { ConfirmationService } from 'primeng/api';
     HttpClientModule,
     SharedModule,
   ],
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

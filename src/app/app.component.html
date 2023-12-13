@@ -1,14 +1,44 @@
 <div class="layout">
-  <app-sidebar>
+  <app-sidebar class="desktop-sidebar">
     <app-nav-item icon="iconoir-calendar" title="Karandar" routerLink="/home"></app-nav-item>
-
     <br />
-
     <app-nav-item icon="iconoir-user-love" title="Dates" routerLink="/dates"></app-nav-item>
     <app-nav-item icon="iconoir-cutlery" title="Restaurants" routerLink="/restaurants"></app-nav-item>
     <app-nav-item icon="iconoir-movie" title="Movies" routerLink="/movies"></app-nav-item>
     <app-nav-item icon="iconoir-compass" title="Trips"></app-nav-item>
   </app-sidebar>
+
+  <div class="phone-sidebar">
+    <p-button (click)="sidebarVisible = true" icon="iconoir-menu"></p-button>
+    <p-sidebar [(visible)]="sidebarVisible" (visibleChange)="visibleChange($event)">
+      <app-nav-item
+        (click)="sidebarVisible = false"
+        icon="iconoir-calendar"
+        title="Karandar"
+        routerLink="/home"
+      ></app-nav-item>
+      <br />
+      <app-nav-item
+        (click)="sidebarVisible = false"
+        icon="iconoir-user-love"
+        title="Dates"
+        routerLink="/dates"
+      ></app-nav-item>
+      <app-nav-item
+        (click)="sidebarVisible = false"
+        icon="iconoir-cutlery"
+        title="Restaurants"
+        routerLink="/restaurants"
+      ></app-nav-item>
+      <app-nav-item
+        (click)="sidebarVisible = false"
+        icon="iconoir-movie"
+        title="Movies"
+        routerLink="/movies"
+      ></app-nav-item>
+      <app-nav-item (click)="sidebarVisible = false" icon="iconoir-compass" title="Trips"></app-nav-item>
+    </p-sidebar>
+  </div>
   <main>
     <router-outlet>
       <div id="map"></div>

@@ -1,7 +1,7 @@
 @use 'themes';
 
 .sidebar {
-  position: relative;
+  position: fixed;
   height: 100%;
   width: 80px;
   transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);

@@ -17,6 +17,7 @@ import { MenuModule } from 'primeng/menu';
 import { SkeletonModule } from 'primeng/skeleton';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ToastModule } from 'primeng/toast';
     SkeletonModule,
     MessagesModule,
     ToastModule,
+    SidebarModule,
   ],
   exports: [
     ButtonComponent,
@@ -59,6 +61,7 @@ import { ToastModule } from 'primeng/toast';
     SkeletonModule,
     MessagesModule,
     ToastModule,
+    SidebarModule,
   ],
 })
 export class SharedModule {}

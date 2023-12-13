@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FullCalendarModule } from '@fullcalendar/angular';
-import { CalendarOptions } from '@fullcalendar/core';
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarApi, CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import multiMonthPlugin from '@fullcalendar/multimonth';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,22 @@ import dayGridPlugin from '@fullcalendar/daygrid';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  calendarApi: CalendarApi;
   calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
+    initialView: 'multiMonthYear',
     height: '100%',
-    plugins: [dayGridPlugin],
+    plugins: [dayGridPlugin, multiMonthPlugin],
+    multiMonthMaxColumns: 1, // force a single column
+    headerToolbar: {
+      end: 'today prevYear,prev,next,nextYear',
+    },
   };
+
+  // references the #calendar in the template
+  @ViewChild('calendar') calendarComponent: FullCalendarComponent;
+
+  switchView() {
+    this.calendarComponent.getApi().changeView('dayGridMonth');
+    // console.log(this.calendarApi);
+  }
 }

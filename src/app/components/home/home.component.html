@@ -7,3 +7,12 @@
 </div>
 
 <full-calendar #calendar [options]="calendarOptions" [events]="events | async"></full-calendar>
+
+<p-sidebar [(visible)]="sidebarVisible" position="bottom" class="bottom-sidebar" styleClass="h-30rem">
+  @if (selectedDate | async; as date) {
+
+  <h1>{{ date.title }}</h1>
+  <h5>{{ date.date | date }}</h5>
+  <p>{{ date.description }}</p>
+  }
+</p-sidebar>

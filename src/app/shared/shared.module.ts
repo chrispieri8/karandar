@@ -44,6 +44,7 @@ import { SidebarModule } from 'primeng/sidebar';
     SidebarModule,
   ],
   exports: [
+    CommonModule,
     ButtonComponent,
     InputComponent,
     CalendarComponent,

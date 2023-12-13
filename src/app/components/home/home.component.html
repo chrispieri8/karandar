@@ -1,9 +1,9 @@
 <div class="action-row">
   <p-button label="today" (onClick)="today()" size="small"></p-button>
   <span class="p-buttonset">
-    <p-button size="small" (onClick)="prev()" icon="iconoir-skip-prev"></p-button>
-    <p-button size="small" (onClick)="next()" icon="iconoir-skip-next"></p-button>
+    <p-button size="small" (onClick)="prev()" icon="pi pi-chevron-left"></p-button>
+    <p-button size="small" (onClick)="next()" icon="pi pi-chevron-right"></p-button>
   </span>
 </div>
 
-<full-calendar #calendar [options]="calendarOptions"></full-calendar>
+<full-calendar #calendar [options]="calendarOptions" [events]="events | async"></full-calendar>

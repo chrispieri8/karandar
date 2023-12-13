@@ -10,8 +10,14 @@
 
   <div class="phone-sidebar">
     <div class="phone-header">
-      <h1>Karandar</h1>
-      <p-button (click)="sidebarVisible = true" [outlined]="true" icon="iconoir-menu"></p-button>
+      <img src="../assets/karandar-title.svg" alt="Karandar-title" width="175px" />
+      <p-button
+        (click)="sidebarVisible = true"
+        size="small"
+        [text]="true"
+        severity="secondary"
+        icon="iconoir-menu"
+      ></p-button>
     </div>
     <p-sidebar [(visible)]="sidebarVisible" (visibleChange)="visibleChange($event)">
       @if (sidebarVisible) {

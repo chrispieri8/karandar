@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
-import { CalendarApi, CalendarOptions } from '@fullcalendar/core';
+import { Calendar, CalendarApi, CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import multiMonthPlugin from '@fullcalendar/multimonth';
 
@@ -19,16 +19,27 @@ export class HomeComponent {
     height: '100%',
     plugins: [dayGridPlugin, multiMonthPlugin],
     multiMonthMaxColumns: 1, // force a single column
-    headerToolbar: {
-      end: 'today prevYear,prev,next,nextYear',
-    },
+    headerToolbar: false,
+    businessHours: true,
+    multiMonthTitleFormat: { month: 'long', year: 'numeric' },
+    viewDidMount: this.viewDidMount.bind(this),
   };
 
-  // references the #calendar in the template
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
 
-  switchView() {
-    this.calendarComponent.getApi().changeView('dayGridMonth');
-    // console.log(this.calendarApi);
+  viewDidMount() {
+    this.calendarApi = this.calendarComponent.getApi();
+  }
+
+  prev() {
+    this.calendarApi.prev();
+  }
+
+  next() {
+    this.calendarApi.next();
+  }
+
+  today() {
+    this.calendarApi.today();
   }
 }

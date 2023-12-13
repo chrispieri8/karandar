@@ -1,1 +1,9 @@
-<full-calendar #calendar (viewDidMount)="switchView()" [options]="calendarOptions"></full-calendar>
+<div class="action-row">
+  <p-button label="today" (onClick)="today()" size="small"></p-button>
+  <span class="p-buttonset">
+    <p-button size="small" (onClick)="prev()" icon="iconoir-skip-prev"></p-button>
+    <p-button size="small" (onClick)="next()" icon="iconoir-skip-next"></p-button>
+  </span>
+</div>
+
+<full-calendar #calendar [options]="calendarOptions"></full-calendar>

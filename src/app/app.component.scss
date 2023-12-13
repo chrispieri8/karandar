@@ -14,6 +14,12 @@ main {
   display: none;
 }
 
+.phone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media only screen and (max-width: 767px) {
   .layout {
     display: block;
@@ -22,11 +28,12 @@ main {
 
   main {
     padding: 0;
-    height: 100%;
+    height: calc(100% - 65px);
   }
 
   .phone-sidebar {
     display: block;
+    margin-bottom: 1rem;
   }
 
   .desktop-sidebar {

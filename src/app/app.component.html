@@ -9,8 +9,12 @@
   </app-sidebar>
 
   <div class="phone-sidebar">
-    <p-button (click)="sidebarVisible = true" icon="iconoir-menu"></p-button>
+    <div class="phone-header">
+      <h1>Karandar</h1>
+      <p-button (click)="sidebarVisible = true" [outlined]="true" icon="iconoir-menu"></p-button>
+    </div>
     <p-sidebar [(visible)]="sidebarVisible" (visibleChange)="visibleChange($event)">
+      @if (sidebarVisible) {
       <app-nav-item
         (click)="sidebarVisible = false"
         icon="iconoir-calendar"
@@ -37,6 +41,7 @@
         routerLink="/movies"
       ></app-nav-item>
       <app-nav-item (click)="sidebarVisible = false" icon="iconoir-compass" title="Trips"></app-nav-item>
+      }
     </p-sidebar>
   </div>
   <main>

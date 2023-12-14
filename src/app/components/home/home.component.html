@@ -11,6 +11,14 @@
 <p-sidebar [(visible)]="sidebarVisible" position="bottom" class="bottom-sidebar" styleClass="h-30rem">
   @if (selectedDate | async; as date) {
 
+  <swiper-container pagination="true">
+    @for (image of date.imageUrls; track image ) {
+    <swiper-slide>
+      <img class="image" [src]="image" loading="lazy" />
+    </swiper-slide>
+    }
+  </swiper-container>
+
   <h1>{{ date.title }}</h1>
   <h5>{{ date.date | date }}</h5>
   <p>{{ date.description }}</p>

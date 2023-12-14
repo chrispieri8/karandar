@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ViewChild } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarApi, CalendarOptions, EventClickArg, EventInput } from '@fullcalendar/core';
@@ -8,6 +8,7 @@ import { DatesService } from 'src/app/services/dates.service';
 import { Observable, find, map } from 'rxjs';
 import interactionPlugin from '@fullcalendar/interaction';
 import { IDate } from 'src/app/models/date.model';
+import { register } from 'swiper/element/bundle';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,9 @@ import { IDate } from 'src/app/models/date.model';
   imports: [SharedModule, FullCalendarModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   sidebarVisible = false;
   calendarApi: CalendarApi;
   calendarOptions: CalendarOptions = {
@@ -33,8 +35,8 @@ export class HomeComponent {
     viewDidMount: this.viewDidMount.bind(this),
   };
 
-  dates = this.dateService.getDates();
-  selectedDate: Observable<IDate | undefined>;
+  dates = this.dateService.dates;
+  selectedDate: Observable<IDate>;
   events: Observable<EventInput> = this.dates.pipe(
     map((dates) => {
       return dates.map((date) => ({
@@ -50,8 +52,16 @@ export class HomeComponent {
 
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
 
+  ngAfterViewInit(): void {
+    register();
+  }
+
   clickEvent(clickE: EventClickArg) {
-    this.selectedDate = this.dates.pipe(map((dates) => dates.find((e) => e._id === clickE.event.id)));
+    this.selectedDate = this.dates.pipe(
+      map((dates) => {
+        return dates.find((e) => e._id === clickE.event.id) as IDate;
+      }),
+    );
     this.sidebarVisible = true;
   }
 

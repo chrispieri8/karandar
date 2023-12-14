@@ -15,6 +15,22 @@
       <textarea rows="3" pInputTextarea id="description" formControlName="description"></textarea>
     </div>
     <br />
+    <p-fileUpload
+      #fileUpload
+      [multiple]="true"
+      accept="image/*"
+      (onSelect)="onSelect($event)"
+      [maxFileSize]="1000000"
+      [showUploadButton]="false"
+      [showCancelButton]="false"
+    >
+      <ng-template pTemplate="content">
+        @if (!form.controls.images.value?.length) {
+        <span>Choose images</span>
+        }
+      </ng-template>
+    </p-fileUpload>
+    <br />
     <app-button [disabled]="form.invalid" (onClick)="submit()" label="Save"></app-button>
   </form>
 </p-dialog>

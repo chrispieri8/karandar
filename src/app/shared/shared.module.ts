@@ -18,6 +18,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { SidebarModule } from 'primeng/sidebar';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SidebarModule } from 'primeng/sidebar';
     MessagesModule,
     ToastModule,
     SidebarModule,
+    FileUploadModule,
   ],
   exports: [
     CommonModule,
@@ -63,6 +65,7 @@ import { SidebarModule } from 'primeng/sidebar';
     MessagesModule,
     ToastModule,
     SidebarModule,
+    FileUploadModule,
   ],
 })
 export class SharedModule {}

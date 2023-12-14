@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IDate, IDateFormData } from '../models/date.model';
-import { BehaviorSubject, Observable, shareReplay, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, shareReplay, switchMap, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -24,7 +24,14 @@ export class DatesService {
   }
 
   updateDate(date: IDateFormData, id: string): Observable<void> {
-    return this.http.put<void>(`${environment.apiUrl}/date/${id}`, date).pipe(tap(() => this.loadDates.next(true)));
+    const formData = new FormData();
+    formData.append('title', date.title || '');
+    formData.append('description', date.description);
+    formData.append('date', date.date.toString());
+    for (let image of date.images || []) {
+      formData.append('images', image);
+    }
+    return this.http.put<void>(`${environment.apiUrl}/date/${id}`, formData).pipe(tap(() => this.loadDates.next(true)));
   }
 
   deleteDate(id: string): Observable<void> {
